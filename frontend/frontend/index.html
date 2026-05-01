@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPath Pro - Personalized Career & Skill Advisor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-chart-line"></i>
+                <span>CareerPath Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#assessment" class="nav-link">Assessment</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#career-paths" class="nav-link">Career Paths</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            <div class="nav-auth" id="navAuth">
+                <a href="login.html" class="btn btn-outline" id="loginBtn">Login</a>
+                <a href="register.html" class="btn btn-primary" id="signupBtn">Sign Up</a>
+            </div>
+            <div class="nav-user" id="navUser" style="display: none;">
+                <div class="user-menu">
+                    <button class="user-toggle" id="userToggle">
+                        <img src="" alt="User Avatar" class="user-avatar" id="userAvatar">
+                        <span class="user-name" id="userName">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user"></i>
+                            Profile
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            My Progress
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover Your Perfect Career Path</h1>
+                <p class="hero-subtitle">Get personalized career guidance and skill recommendations tailored to your interests, strengths, and goals.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('assessment')">
+                        <i class="fas fa-play"></i>
+                        Start Assessment
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('about')">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-cards">
+                    <div class="card card-1">
+                        <i class="fas fa-code"></i>
+                        <span>Tech Skills</span>
+                    </div>
+                    <div class="card card-2">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Analytics</span>
+                    </div>
+                    <div class="card card-3">
+                        <i class="fas fa-users"></i>
+                        <span>Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Section -->
+    <section id="assessment" class="assessment">
+        <div class="container">
+            <div class="section-header">
+                <h2>Career Assessment</h2>
+                <p>Answer a few questions to get personalized career recommendations</p>
+            </div>
+            
+            <div class="assessment-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="currentQuestion">1</span> of <span id="totalQuestions">10</span>
+                </div>
+
+                <div class="question-container" id="questionContainer">
+                    <!-- Questions will be dynamically loaded here -->
+                </div>
+
+                <div class="assessment-buttons">
+                    <button class="btn btn-outline" id="prevBtn" onclick="previousQuestion()" disabled>
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+                        Next
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Analysis Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Skills Analysis</h2>
+                <p>Discover your strengths and areas for improvement</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">React</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="60"></div>
+                            </div>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Communication</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Leadership</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Problem Solving</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommendations">
+                <h3>Skill Recommendations</h3>
+                <div class="recommendation-cards">
+                    <div class="recommendation-card">
+                        <i class="fas fa-arrow-up"></i>
+                        <h4>Improve React Skills</h4>
+                        <p>Focus on advanced React patterns and state management</p>
+                        <a href="#" class="recommendation-link">View Resources</a>
+                    </div>
+                    <div class="recommendation-card">
+                        <i class="fas fa-plus"></i>
+                        <h4>Learn TypeScript</h4>
+                        <p>Add TypeScript to your JavaScript toolkit</p>
+                        <a href="#" class="recommendation-link">Start Learning</a>
+                    </div>
+                    <div class="recommendation-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Data Analysis</h4>
+                        <p>Develop skills in data visualization and analytics</p>
+                        <a href="#" class="recommendation-link">Explore Path</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Paths Section -->
+    <section id="career-paths" class="career-paths">
+        <div class="container">
+            <div class="section-header">
+                <h2>Career Paths</h2>
+                <p>Explore different career trajectories based on your profile</p>
+            </div>
+
+            <div class="career-tabs">
+                <button class="tab-btn active" onclick="showCareerPath('frontend')">Frontend Developer</button>
+                <button class="tab-btn" onclick="showCareerPath('backend')">Backend Developer</button>
+                <button class="tab-btn" onclick="showCareerPath('fullstack')">Full Stack Developer</button>
+                <button class="tab-btn" onclick="showCareerPath('data')">Data Scientist</button>
+                <button class="tab-btn" onclick="showCareerPath('mobile')">Mobile Developer</button>
+                <button class="tab-btn" onclick="showCareerPath('devops')">DevOps Engineer</button>
+                <button class="tab-btn" onclick="showCareerPath('cybersecurity')">Cybersecurity</button>
+                <button class="tab-btn" onclick="showCareerPath('product')">Product Manager</button>
+                <button class="tab-btn" onclick="showCareerPath('mechanical')">Mechanical Engineer</button>
+                <button class="tab-btn" onclick="showCareerPath('civil')">Civil Engineer</button>
+                <button class="tab-btn" onclick="showCareerPath('electrical')">Electrical Engineer</button>
+                <button class="tab-btn" onclick="showCareerPath('biomedical')">Biomedical Engineer</button>
+            </div>
+
+            <div class="career-path-content">
+                <div id="frontend" class="career-path active">
+                    <div class="path-overview">
+                        <h3>Frontend Developer Path</h3>
+                        <p>Build user interfaces and create engaging web experiences</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$75,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">6-12</span>
+                                <span class="stat-label">Months to Learn</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>HTML & CSS Fundamentals</h5>
+                                    <p>Learn the basics of web structure and styling</p>
+                                    <span class="step-duration">2-3 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>JavaScript Basics</h5>
+                                    <p>Master JavaScript fundamentals and ES6+ features</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>React Framework</h5>
+                                    <p>Build dynamic user interfaces with React</p>
+                                    <span class="step-duration">6-8 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Advanced Concepts</h5>
+                                    <p>State management, testing, and deployment</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="backend" class="career-path">
+                    <div class="path-overview">
+                        <h3>Backend Developer Path</h3>
+                        <p>Build server-side applications, APIs, and database systems</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$85,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">8-14</span>
+                                <span class="stat-label">Months to Learn</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Very High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Programming Language</h5>
+                                    <p>Master Python, Java, or Node.js fundamentals</p>
+                                    <span class="step-duration">6-8 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Database Design</h5>
+                                    <p>Learn SQL, database design, and ORM concepts</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>API Development</h5>
+                                    <p>Build RESTful APIs and microservices</p>
+                                    <span class="step-duration">6-8 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Cloud & Deployment</h5>
+                                    <p>Deploy applications using AWS, Azure, or GCP</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fullstack" class="career-path">
+                    <div class="path-overview">
+                        <h3>Full Stack Developer Path</h3>
+                        <p>Master both frontend and backend development for complete web applications</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$95,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">12-18</span>
+                                <span class="stat-label">Months to Learn</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Very High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Frontend Foundation</h5>
+                                    <p>HTML, CSS, JavaScript, and React/Vue basics</p>
+                                    <span class="step-duration">8-10 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Backend Development</h5>
+                                    <p>Server-side programming and database integration</p>
+                                    <span class="step-duration">8-10 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Full Stack Integration</h5>
+                                    <p>Connect frontend and backend, build complete apps</p>
+                                    <span class="step-duration">6-8 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>DevOps & Deployment</h5>
+                                    <p>CI/CD, containerization, and cloud deployment</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="data" class="career-path">
+                    <div class="path-overview">
+                        <h3>Data Scientist Path</h3>
+                        <p>Extract insights from data using statistics, machine learning, and analytics</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$110,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">10-16</span>
+                                <span class="stat-label">Months to Learn</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Python & Statistics</h5>
+                                    <p>Learn Python for data analysis and statistical concepts</p>
+                                    <span class="step-duration">8-10 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Data Manipulation</h5>
+                                    <p>Pandas, NumPy, and data cleaning techniques</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Machine Learning</h5>
+                                    <p>Scikit-learn, model building, and evaluation</p>
+                                    <span class="step-duration">8-10 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Advanced Analytics</h5>
+                                    <p>Deep learning, big data tools, and visualization</p>
+                                    <span class="step-duration">6-8 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mobile" class="career-path">
+                    <div class="path-overview">
+                        <h3>Mobile Developer Path</h3>
+                        <p>Create mobile applications for iOS and Android platforms</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$90,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">8-16</span>
+                                <span class="stat-label">Months to Learn</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Choose Platform</h5>
+                                    <p>Decide between iOS (Swift) or Android (Kotlin/Java)</p>
+                                    <span class="step-duration">1-2 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Learn Programming Language</h5>
+                                    <p>Master Swift for iOS or Kotlin/Java for Android</p>
+                                    <span class="step-duration">6-10 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Mobile Frameworks</h5>
+                                    <p>Learn React Native, Flutter, or native development</p>
+                                    <span class="step-duration">8-12 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>App Store & Deployment</h5>
+                                    <p>Learn app publishing and store guidelines</p>
+                                    <span class="step-duration">2-4 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="devops" class="career-path">
+                    <div class="path-overview">
+                        <h3>DevOps Engineer Path</h3>
+                        <p>Bridge development and operations with automation and cloud infrastructure</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$120,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">10-18</span>
+                                <span class="stat-label">Months to Learn</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Very High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Linux & Command Line</h5>
+                                    <p>Master Linux administration and shell scripting</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Cloud Platforms</h5>
+                                    <p>Learn AWS, Azure, or Google Cloud fundamentals</p>
+                                    <span class="step-duration">6-8 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Containerization</h5>
+                                    <p>Master Docker and Kubernetes orchestration</p>
+                                    <span class="step-duration">6-8 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>CI/CD & Monitoring</h5>
+                                    <p>Implement continuous integration and monitoring solutions</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cybersecurity" class="career-path">
+                    <div class="path-overview">
+                        <h3>Cybersecurity Path</h3>
+                        <p>Protect systems and data from cyber threats and attacks</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$95,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">12-20</span>
+                                <span class="stat-label">Months to Learn</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Very High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Networking Fundamentals</h5>
+                                    <p>Learn TCP/IP, network protocols, and infrastructure</p>
+                                    <span class="step-duration">6-8 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Security Concepts</h5>
+                                    <p>Understand threats, vulnerabilities, and defense mechanisms</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Penetration Testing</h5>
+                                    <p>Learn ethical hacking and vulnerability assessment</p>
+                                    <span class="step-duration">8-10 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Security Tools & Certifications</h5>
+                                    <p>Master security tools and earn industry certifications</p>
+                                    <span class="step-duration">6-8 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="product" class="career-path">
+                    <div class="path-overview">
+                        <h3>Product Manager Path</h3>
+                        <p>Lead product strategy, development, and market success</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$110,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">6-12</span>
+                                <span class="stat-label">Months to Learn</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Product Fundamentals</h5>
+                                    <p>Learn product lifecycle, strategy, and market research</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Technical Understanding</h5>
+                                    <p>Gain basic knowledge of software development processes</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Tools & Analytics</h5>
+                                    <p>Master product management tools and data analysis</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Leadership & Communication</h5>
+                                    <p>Develop stakeholder management and team leadership skills</p>
+                                    <span class="step-duration">4-6 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mechanical" class="career-path">
+                    <div class="path-overview">
+                        <h3>Mechanical Engineer Path</h3>
+                        <p>Design, analyze, and manufacture mechanical systems and products</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$85,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">4-6</span>
+                                <span class="stat-label">Years to Complete</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Mathematics & Physics</h5>
+                                    <p>Master calculus, differential equations, and physics principles</p>
+                                    <span class="step-duration">2-3 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Core Engineering</h5>
+                                    <p>Learn thermodynamics, mechanics, and materials science</p>
+                                    <span class="step-duration">2-3 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Design & Analysis</h5>
+                                    <p>Master CAD software, FEA, and engineering design principles</p>
+                                    <span class="step-duration">1-2 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Specialization</h5>
+                                    <p>Choose focus area: automotive, aerospace, robotics, or manufacturing</p>
+                                    <span class="step-duration">1-2 years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="civil" class="career-path">
+                    <div class="path-overview">
+                        <h3>Civil Engineer Path</h3>
+                        <p>Design and maintain infrastructure projects like roads, bridges, and buildings</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$80,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">4-6</span>
+                                <span class="stat-label">Years to Complete</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Very High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Fundamentals</h5>
+                                    <p>Master mathematics, physics, and basic engineering principles</p>
+                                    <span class="step-duration">2-3 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Core Civil Engineering</h5>
+                                    <p>Learn structural analysis, geotechnical engineering, and hydraulics</p>
+                                    <span class="step-duration">2-3 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Design Software</h5>
+                                    <p>Master AutoCAD, Revit, and specialized civil engineering software</p>
+                                    <span class="step-duration">1-2 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Licensure & Specialization</h5>
+                                    <p>Pass FE exam, gain experience, and choose specialization area</p>
+                                    <span class="step-duration">2-4 years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="electrical" class="career-path">
+                    <div class="path-overview">
+                        <h3>Electrical Engineer Path</h3>
+                        <p>Design and develop electrical systems, electronics, and power systems</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$90,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">4-6</span>
+                                <span class="stat-label">Years to Complete</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Mathematics & Physics</h5>
+                                    <p>Master calculus, linear algebra, and electromagnetic theory</p>
+                                    <span class="step-duration">2-3 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Circuit Analysis</h5>
+                                    <p>Learn digital circuits, analog circuits, and power systems</p>
+                                    <span class="step-duration">2-3 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Programming & Tools</h5>
+                                    <p>Master MATLAB, LabVIEW, and embedded systems programming</p>
+                                    <span class="step-duration">1-2 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Specialization</h5>
+                                    <p>Choose focus: power systems, electronics, telecommunications, or control systems</p>
+                                    <span class="step-duration">1-2 years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="biomedical" class="career-path">
+                    <div class="path-overview">
+                        <h3>Biomedical Engineer Path</h3>
+                        <p>Combine engineering principles with biological sciences to improve healthcare</p>
+                        <div class="path-stats">
+                            <div class="stat">
+                                <span class="stat-number">$88,000</span>
+                                <span class="stat-label">Average Salary</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">4-6</span>
+                                <span class="stat-label">Years to Complete</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Very High</span>
+                                <span class="stat-label">Job Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-roadmap">
+                        <h4>Learning Roadmap</h4>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Foundation Sciences</h5>
+                                    <p>Master biology, chemistry, physics, and mathematics</p>
+                                    <span class="step-duration">2-3 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Engineering Core</h5>
+                                    <p>Learn electrical, mechanical, and materials engineering principles</p>
+                                    <span class="step-duration">2-3 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Biomedical Applications</h5>
+                                    <p>Study medical devices, imaging systems, and biomaterials</p>
+                                    <span class="step-duration">1-2 years</span>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Specialization</h5>
+                                    <p>Choose focus: medical devices, tissue engineering, or medical imaging</p>
+                                    <span class="step-duration">1-2 years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About CareerPath Pro</h2>
+                    <p>We help individuals discover their ideal career paths through personalized assessments, skill analysis, and comprehensive career guidance. Our AI-powered platform provides tailored recommendations based on your interests, strengths, and market trends.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-brain"></i>
+                            <h4>AI-Powered Analysis</h4>
+                            <p>Advanced algorithms analyze your profile for accurate recommendations</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Market Insights</h4>
+                            <p>Real-time data on job market trends and salary information</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>Learning Resources</h4>
+                            <p>Curated courses and resources to develop your skills</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-robot"></i>
+                            <h4>Gemini AI Assistant</h4>
+                            <p>Get instant personalized career advice from our AI-powered career counselor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Users Helped</span>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Career Paths</span>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-star"></i>
+                            <span class="stat-number">4.9</span>
+                            <span class="stat-label">User Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fas fa-robot"></i>
+                <span>Career Assistant</span>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hi! I'm your Career Assistant powered by Gemini AI. I can help you with:</p>
+                    <ul>
+                        <li>Career path guidance</li>
+                        <li>Skill development advice</li>
+                        <li>Learning recommendations</li>
+                        <li>Interview preparation tips</li>
+                    </ul>
+                    <p>What would you like to know about your career?</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <div class="chat-input-wrapper">
+                <input type="text" id="chatInput" placeholder="Ask me about your career..." maxlength="500">
+                <button class="chat-send" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="quick-questions">
+                <button class="quick-btn" onclick="askQuickQuestion('What skills should I learn for frontend development?')">
+                    Frontend Skills
+                </button>
+                <button class="quick-btn" onclick="askQuickQuestion('How do I prepare for a tech interview?')">
+                    Interview Tips
+                </button>
+                <button class="quick-btn" onclick="askQuickQuestion('What career path should I choose?')">
+                    Career Path
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chat Toggle Button -->
+    <button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+        <span class="chat-badge" id="chatBadge">1</span>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-chart-line"></i>
+                        <span>CareerPath Pro</span>
+                    </div>
+                    <p>Your personalized career and skill advisor</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#assessment">Assessment</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#career-paths">Career Paths</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@careerpathpro.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CareerPath Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/gemini-config.js"></script>
+    <script src="js/script.js"></script>
+    <button onclick="addUser()">Add User</button>
+<script>
+  function addUser() {
+    fetch("http://localhost:5000/addUser", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "John Doe", email: "john@example.com" }),
+    })
+      .then(res => res.json())
+      .then(data => console.log("Response:", data))
+      .catch(err => console.error("Error:", err));
+  }
+</script>
+</body>
+</html>
